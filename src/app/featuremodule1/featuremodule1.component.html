@@ -1,3 +1,8 @@
 <p>featuremodule1 works!</p>
 <p>getName() {{getName()}}</p>
 <p>observable name {{name | async}}</p>
+<ng-container *ngIf="names | async as names">
+    <ng-container *ngFor="let name of names">
+        <p>observable names {{name}}</p>
+    </ng-container>
+</ng-container>

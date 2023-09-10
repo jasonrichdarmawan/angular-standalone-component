@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Featuremodule1Component implements OnInit {
   name!: Observable<String>;
+  names!: Observable<String[]>;
 
   constructor(private featureModuleService: Featuremodule1Service) { }
 
@@ -20,6 +21,12 @@ export class Featuremodule1Component implements OnInit {
     this.name = new Observable((subscriber) => {
       setTimeout(() => {
         subscriber.next("works!");
+        subscriber.complete();
+      }, 1000);
+    })
+    this.names = new Observable((subscriber) => {
+      setTimeout(() => {
+        subscriber.next(["name1", "name2"]);
         subscriber.complete();
       }, 1000);
     })
